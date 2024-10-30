@@ -9,9 +9,12 @@ Installation is like any other plugin:
 5. You can configure @ which status the request should be send to the reporter of the issue and in addition you can define who is allowed to see the results
 That's all, enjoy
 
+
+## Support
 Issues/requests can be registered on Github:
 https://github.com/mantisbt-plugins/Survey
 
+## Changes
 version<br>
 1.0.0	30-10-2024	Initial release<br>
 1.1.0	31-10-2024	Included manaagement cockpit<br>
