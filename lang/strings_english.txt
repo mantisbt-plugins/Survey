@@ -27,3 +27,10 @@ $s_plugin_Survey_post_survey	= 'Post It !';
 $s_plugin_Survey_error_wrong_user		= 'You did not report this issue, you cannot run this survey.';
 $s_plugin_Survey_error_wrong_status		= 'This issue has the wrong status, survey cannot be handled (yet).';
 $s_plugin_Survey_error_survey_done		= 'This survey already has been posted, you cannot do this twice.';
+
+$s_plugin_Survey_export			= 'Export Survey Data';
+$s_plugin_Survey_del_survey		= 'Remove this survey response';
+$s_plugin_Survey_manage			= 'Manage Survey Responses';
+
+$s_plugin_Survey_txt1			= 'We scored ';
+$s_plugin_Survey_txt2			= ' out of 5 measured over ';

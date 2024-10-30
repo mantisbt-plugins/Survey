@@ -13,7 +13,7 @@ class SurveyPlugin extends MantisPlugin {
 		$this->name = plugin_lang_get( 'title' );
 		$this->description = plugin_lang_get( 'description' );
 		$this->page = 'config';
-		$this->version = '1.0.0';
+		$this->version = '1.1.0';
 		$this->requires = array( 'MantisCore' => '2.0.0', );
 		$this->author = 'Cas Nuy';
 		$this->contact = 'cas@nuy.info';
@@ -33,7 +33,7 @@ class SurveyPlugin extends MantisPlugin {
 	}
 
 	function managemenu() {
-		return array('<a href="'. plugin_page( 'manage_survey_page.php' ) . '">' . plugin_lang_get( 'survey' ) . '</a>' );
+		return array('<a href="'. plugin_page( 'manage_Survey_page.php' ) . '">' . plugin_lang_get( 'survey' ) . '</a>' );
     }
 
 

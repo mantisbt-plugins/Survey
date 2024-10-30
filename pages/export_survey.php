@@ -19,41 +19,58 @@ $content .= "|";
 $content .= plugin_lang_get('improve');
 $content .= "|";
 $content .= lang_get('date_modified');
-$content .= lang_get('time_hours');
 $content .= "\r\n";
 
 $result = db_query($query);
 while ($t_row = db_fetch_array($result)) {
 	
-	$reporter  		= user_get_username( $row["reporter_id"] );
-	if ( $row["reporter_id"] > 0 ) {
-		$reportername= user_get_realname( $row["reporter_id"] );
+	$reporter  		= user_get_username( $t_row["reporter_id"] );
+	if ( $t_row["reporter_id"] > 0 ) {
+		$reportername= user_get_realname( $t_row["reporter_id"] );
 		$reporter .= ' - '.$reportername;
 	}
-	$handler  		= user_get_username( $row["handler_id"] );
-	if ( $row["handler_id"] > 0 ) {
-		$handlername= user_get_realname( $row["handler_id"] );
+	$handler  		= user_get_username( $t_row["handler_id"] );
+	if ( $t_row["handler_id"] > 0 ) {
+		$handlername= user_get_realname( $t_row["handler_id"] );
 		$handler .= ' - '.$handler;
 	} else {
 		$handler .= ' - Administrator';
 	}
-	$summary  		=  $row["summary"];
-	
+	switch($t_row['survey_score'] ) {
+		case 1:
+			$scoretxt = plugin_lang_get('bad');
+			break;
+		case 2:
+			$scoretxt = plugin_lang_get('poor');
+			break;
+		case 3:
+			$scoretxt = plugin_lang_get('average');
+			break;
+		case 4:
+			$scoretxt = plugin_lang_get('ok');
+			break;
+		case 1:
+			$scoretxt = plugin_lang_get('excellent');
+			break;
+	}
+
 	$content .= $t_row["bug_id"] ;
 	$content .= "|";
 	$content .= $t_row["summary"] ;
 	$content .= "|";
-	$content .= $t_row["reporter"] ;
+	$content .= $reporter ;
 	$content .= "|";
-	$content .= $t_row["handler"] ;
+	$content .= $handler ;
 	$content .= "|";
-	$content .= $t_row["score"] ;
+	$content .= $scoretxt ;
 	$content .= "|";
-	$content .= $t_row["good"];
+	$content .= $t_row["survey_good"];
 	$content .= "|";
-	$content .= $t_row["wrong"] ;
+	$content .= $t_row["survey_wrong"] ;
 	$content .= "|";
-	$content .= $t_row["improve"] ;
+	$content .= $t_row["survey_improve"] ;
+	$content .= "|";
+	$content .= $t_row["survey_created"] ;
 	$content .= "\r\n";
 }	
 $content .= "\r\n";

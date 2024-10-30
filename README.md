@@ -1,7 +1,5 @@
-# Survey
+# Survey version 1.1.0
 This plugin allows sending of a survey request once the issue reaches a specific status.
-in this first version only a download is available of the survey.
-Next version will also have a management cockpit.
 
 Installation is like any other plugin:
 1. Download the plugin from Github
@@ -13,3 +11,7 @@ That's all, enjoy
 
 Issues/requests can be registered on Github:
 https://github.com/mantisbt-plugins/Survey
+
+version
+1.0.0	30-10-2024	Initial release
+1.1.0	31-10-2024	Included manaagement cockpit
