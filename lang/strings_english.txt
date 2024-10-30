@@ -1,0 +1,29 @@
+<?php
+$s_plugin_Survey_title       	= "Survey";
+$s_plugin_Survey_description	= "Request Reporter to fill in a Survey";
+
+$s_plugin_Survey_sent_you_this_survey_link_about	= "asks you to fill in a survey on how we handled your issue";
+$s_plugin_Survey_message	= "We love to hear how you rate our service, please fill in our survey!";
+
+$s_plugin_Survey_results_view_threshold = "Level required to view results";
+$s_plugin_Survey_trigger = "Send survey request upon reachin status: ";
+$s_plugin_Survey_config       	= "configuration";
+$s_plugin_Survey_survey       	= "Surveys";
+
+$s_plugin_Survey_score       	= "Service Score";
+$s_plugin_Survey_fill_survey   	= "Please provide your feedback";
+$s_plugin_Survey_handler	   	= "Finished by";
+$s_plugin_Survey_wrong		   	= "What went wrong";
+$s_plugin_Survey_good		   	= "What went good";
+$s_plugin_Survey_improve	   	= "How can we improve";
+
+$s_plugin_Survey_bad			= ' Bad ';
+$s_plugin_Survey_poor			= ' Poor ';
+$s_plugin_Survey_average		= ' Average ';
+$s_plugin_Survey_ok				= ' Good ';
+$s_plugin_Survey_excellent		= ' Excellent ';
+$s_plugin_Survey_post_survey	= 'Post It !';
+
+$s_plugin_Survey_error_wrong_user		= 'You did not report this issue, you cannot run this survey.';
+$s_plugin_Survey_error_wrong_status		= 'This issue has the wrong status, survey cannot be handled (yet).';
+$s_plugin_Survey_error_survey_done		= 'This survey already has been posted, you cannot do this twice.';
