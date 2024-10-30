@@ -12,6 +12,6 @@ That's all, enjoy
 Issues/requests can be registered on Github:
 https://github.com/mantisbt-plugins/Survey
 
-version
+version<br>
 1.0.0	30-10-2024	Initial release<br>
 1.1.0	31-10-2024	Included manaagement cockpit<br>
