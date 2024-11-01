@@ -1,4 +1,4 @@
-# Survey version 1.2.0
+# Survey version 1.2.1
 This plugin allows sending of a survey request once the issue reaches a specific status.
 
 Installation is like any other plugin:
