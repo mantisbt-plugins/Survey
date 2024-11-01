@@ -13,7 +13,7 @@ That's all, enjoy
 - Selection of status which will trigger the invitation for the Survey
 - Selection of the user level that can view the management page of survey results
 - Select the projects for which the survey should be triggered
-	- for now a comme separated list which holds  the project_id's. Default value = '0' which means all projects.
+	- for now a comma separated list which holds  the project_id's. Default value = '0' which means all projects.
 - Set the max number of entries per page when looking @ the survey results ( between 5 & 100 )
 
 
