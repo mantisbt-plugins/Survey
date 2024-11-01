@@ -49,8 +49,26 @@ print_manage_menu();
 	</td>
 </tr>
 
+<tr >
+	<td class="category">
+	<?php echo plugin_lang_get( 'projects' ) ?>
+	</td>
+	<td >
+	<input type="text" id="projects" name="projects"  value =<?php echo plugin_config_get( 'Survey_projects' )  ?>>
+	</td>
+</tr>
+
+<tr >
+	<td class="category">
+	<?php echo plugin_lang_get( 'entries' ) ?>
+	</td>
+	<td >
+	<input type="number" id="entries" name="entries" min="5" max="100" value =<?php echo plugin_config_get( 'results_per_page' ) ?>>
+	</td>
+</tr>
+
 <div class="widget-toolbox padding-8 clearfix">
-	<input type="submit" class="btn btn-primary btn-white btn-round" value="<?php echo lang_get( 'change_configuration' )?>" />
+	<input type="submit" class="btn btn-primary btn-white btn-round" value="<?php echo lang_get( 'change_configuration' )?>" >
 </div>
 	</table>
 </div>

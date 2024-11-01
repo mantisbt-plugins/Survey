@@ -34,3 +34,6 @@ $s_plugin_Survey_manage			= 'Manage Survey Responses';
 
 $s_plugin_Survey_txt1			= 'We scored ';
 $s_plugin_Survey_txt2			= ' out of 5 measured over ';
+
+$s_plugin_Survey_entries		= 'Number of results per page';
+$s_plugin_Survey_projects		= 'Select project(s)';

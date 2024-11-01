@@ -13,7 +13,7 @@ class SurveyPlugin extends MantisPlugin {
 		$this->name = plugin_lang_get( 'title' );
 		$this->description = plugin_lang_get( 'description' );
 		$this->page = 'config';
-		$this->version = '1.1.0';
+		$this->version = '1.2.0';
 		$this->requires = array( 'MantisCore' => '2.0.0', );
 		$this->author = 'Cas Nuy';
 		$this->contact = 'cas@nuy.info';
@@ -24,6 +24,8 @@ class SurveyPlugin extends MantisPlugin {
 		return array(
 			'Survey_status'				=> 90,		// Closed
 			'results_view_threshold'	=> 70,		// Manager	
+			'results_per_page'			=> 25,
+			'Survey_projects'			=> '0',			
 			);
 	}
 
@@ -42,7 +44,15 @@ class SurveyPlugin extends MantisPlugin {
 		$check= plugin_config_get( 'Survey_status');
 		$t_curstat = $p_bug_data->status;
 		$t_newstat = $p_bug_data_new->status;
-
+		$t_projects = plugin_config_get( 'Survey_projects');
+		if ( $t_projects <> '0' ) {
+			# we have a filter on projects
+			$t_project_id = $p_bug_data->project_id ;
+			$selprojects = explode ( ",",$t_projects );
+			if ( !in_array( $t_project_id, $selprojects ) ) {
+				return;
+			}
+		}
 		if ( ( $t_curstat <> $t_newstat ) and ( $t_newstat == $check ) ) {
 			# survey request can only be registered once so if we already have results skip the email
 			$t_bug_id	= $p_bug_data->id ;
@@ -79,8 +89,5 @@ function errors() {
 						" ) ),
 		);
 	}
-
-
-
 
 }

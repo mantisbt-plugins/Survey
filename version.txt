@@ -1,3 +1,3 @@
-Version: 1.10#
+Version: 1.2.0#
 Devurl: https://github.com/mantisbt-plugins/Survey/blob/main/version.txt #
 Location: https://github.com/mantisbt-plugins/Survey/archive/refs/heads/main.zip #
