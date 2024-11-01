@@ -26,8 +26,6 @@ if ( $t_count > 0 ){
 }
 
 
-auth_reauthenticate();
-access_ensure_global_level( config_get( 'manage_plugin_threshold' ) );
 layout_page_header( lang_get( 'plugin_format_title' ) );
 layout_page_begin( );
 ?>
