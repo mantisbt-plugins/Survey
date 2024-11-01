@@ -9,6 +9,10 @@ Installation is like any other plugin:
 5. You can configure @ which status the request should be send to the reporter of the issue and in addition you can define who is allowed to see the results
 That's all, enjoy
 
+## ToDo
+- Projectbased activation (all, some or one)
+- Pagination of survey results
+- Search option for Issue on survey results page
 
 ## Support
 Issues/requests can be registered on Github:
