@@ -4,21 +4,48 @@ access_ensure_global_level( config_get( 'manage_plugin_threshold' ) );
 layout_page_header( lang_get( 'plugin_format_title' ) );
 layout_page_begin( 'config.php' );
 print_manage_menu();
+
+# do we end up here searching for a specific survey result
+$search_id		= gpc_get_int( 'bug_id',0 );
+
+
+# pagination of results 
+$per_page  = plugin_config_get( 'results_per_page' ) ;
+if (isset($_GET["pages"])) {
+	$pages = $_GET["pages"];
+} else {
+	$pages=1;
+}
+
+// Page will start from 0 and Multiple by Per Page
+$start_from = ($pages-1) * $per_page;
+
 $points = 0;
-$query = "SELECT sum(survey_score) as points from {plugin_Survey_surveyresults}";
+$query = "SELECT sum(survey_score) as points, count(*) as count from {plugin_Survey_surveyresults}";
 $result		= db_query( $query );
 while ( $row = db_fetch_array( $result ) ) {
 	$points = $row["points"];
+	$count	= $row['count']; 
 }
-$query 		= "select * from {plugin_Survey_surveyresults} s, {bug} b where b.id=s.bug_id order by bug_id desc";
-$result		= db_query( $query );
-$count = db_num_rows($result);
+
 if ( $count > 0) {
 	$average = number_format($points/$count,1); 
 } else {
 	$average = 0;
 }
+
+//Using ceil function to divide the total records on per page
+$total_pages = ceil($count / $per_page);
+
 $link1 = "plugin.php?page=Survey/export_survey.php";
+// create the resultset 
+if ($search_id > 0 ) {
+	$query 		= "select * from {plugin_Survey_surveyresults} s, {bug} b where b.id=s.bug_id and s.bug_id = $search_id";
+
+} else {
+	$query 		= "select * from {plugin_Survey_surveyresults} s, {bug} b where b.id=s.bug_id order by bug_id desc LIMIT $start_from, $per_page";
+}
+$result		= db_query( $query );
 
 ?>
 <div class="col-md-12 col-xs-12">
@@ -35,6 +62,9 @@ $link1 = "plugin.php?page=Survey/export_survey.php";
 <div class="widget-body">
 <div class="widget-main no-padding">
 <div class="table-responsive"> 
+
+<div id="nav-search" class="nav-search"><form class="form-search" method="post" action="plugin.php?page=Survey/manage_Survey_page.php"><span class="input-icon"><input type="text" name="bug_id" autocomplete="off" class="nav-search-input" placeholder="Issue #"><i class="fa fa-search ace-icon nav-search-icon" ></i></span></form></div>
+
 <table class="table table-bordered table-condensed table-striped"> 
 <form action="<?php echo plugin_page( 'ip_add' ) ?>" method="post">
 <tr >
@@ -77,7 +107,9 @@ echo plugin_lang_get( 'survey' ) ;
 
 </form>
 
+
 <?php
+
 while ( $row = db_fetch_array( $result ) ) {
 	$reporter  		= user_get_username( $row["reporter_id"] );
 	if ( $row["reporter_id"] > 0 ) {
@@ -129,6 +161,13 @@ while ( $row = db_fetch_array( $result ) ) {
 	</tr>
 	<?PHP
 }
+//Going to first page
+echo "<center><a href='plugin.php?page=Survey/manage_Survey_page.php&pages=1'>".'First Page '."</a>";
+for ($i=1; $i<=$total_pages; $i++) {
+	echo "<a href='plugin.php?page=Survey/manage_Survey_page.php&pages=".$i."'>".$i."</a>";
+};
+// Going to last page
+echo "<a href='plugin.php?page=Survey/manage_Survey_page.php&pages=$total_pages'>".' Last Page'."</a></center>";
 ?>
 </table>
 </div>
@@ -138,4 +177,5 @@ while ( $row = db_fetch_array( $result ) ) {
 </div>
 </div>
 <?php
+
 layout_page_end();

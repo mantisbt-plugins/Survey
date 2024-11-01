@@ -18,8 +18,6 @@ That's all, enjoy
 
 
 ## ToDo
-- Pagination of survey results
-- Search option for Issue on survey results page
 - Beautify project selection
 
 ## Support
@@ -30,4 +28,5 @@ https://github.com/mantisbt-plugins/Survey
 version<br>
 1.0.0	30-10-2024	Initial release<br>
 1.1.0	31-10-2024	Included management cockpit<br>
-1.2.0	01-11-2024	Included option to activate the survey plugin for one or more projects
+1.2.0	01-11-2024	Included option to activate the survey plugin for one or more projects<br>
+1.2.1	01-11-2024	Added option to search in the resultset<br>

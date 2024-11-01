@@ -13,7 +13,7 @@ class SurveyPlugin extends MantisPlugin {
 		$this->name = plugin_lang_get( 'title' );
 		$this->description = plugin_lang_get( 'description' );
 		$this->page = 'config';
-		$this->version = '1.2.0';
+		$this->version = '1.2.1';
 		$this->requires = array( 'MantisCore' => '2.0.0', );
 		$this->author = 'Cas Nuy';
 		$this->contact = 'cas@nuy.info';
@@ -90,4 +90,9 @@ function errors() {
 		);
 	}
 
+
+// https://github.com/michael/multiselect/blob/master/index.html
+// http://quasipartikel.at/multiselect_original/
+
+// https://github.com/openqubit/php-pagination/blob/master/page.php
 }
