@@ -18,4 +18,10 @@ if ( $t_count > 0 ){
 $sql = 'INSERT INTO {plugin_Survey_surveyresults} ( bug_id, survey_score,survey_good, survey_wrong, survey_improve, survey_created ) VALUES ( ' . db_param() . ',' . db_param() . ',' . db_param() . ', ' . db_param() . ', ' . db_param() . ', ' . db_param() . ')';
 db_query($sql, array( $t_bug_id, $f_score, $f_good, $f_wrong, $f_improve, $curdate ) );
 
+# send email to inform someone about the posted survey
+if ( ON == plugin_config_get( 'Survey_inform_result') ) {
+	$postedmail = email_survey_post( $t_bug_id );
+}
+
+# return to view_all_bugs
 print_header_redirect( 'view_all_bug_page.php' );

@@ -37,3 +37,11 @@ $s_plugin_Survey_txt2			= ' out of 5 measured over ';
 
 $s_plugin_Survey_entries		= 'Number of results per page';
 $s_plugin_Survey_projects		= 'Select project(s)';
+
+$s_plugin_Survey_finalized_the_survey_about	= "finalized the survey";
+$s_plugin_Survey_message2	= "You can review it in the management console!";
+
+$s_plugin_Survey_inform	= "Inform someone about the posted results";
+$s_plugin_Survey_Yes	= "Yes";
+$s_plugin_Survey_No	 	= "No";
+$s_plugin_Survey_user	= "Select user to send the result message to";

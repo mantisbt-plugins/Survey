@@ -59,6 +59,29 @@ print_manage_menu();
 </tr>
 
 <tr >
+	<td class="category" >
+	<?php echo plugin_lang_get( 'inform' )?>
+	</td>
+	<td >
+	<label><input type="radio" name='inform' value="1" <?php echo( ON == plugin_config_get( 'Survey_inform_result' ) ) ? 'checked="checked" ' : ''?>/>
+	<?php echo plugin_lang_get( 'Yes' )?></label>
+	<label><input type="radio" name='inform' value="0" <?php echo( OFF == plugin_config_get( 'Survey_inform_result' ) )? 'checked="checked" ' : ''?>/>
+	<?php echo plugin_lang_get( 'No' )?></label>
+	</td>
+</tr> 
+
+<tr >
+	<td class="category">
+	<?php echo plugin_lang_get( 'user' ) ?>
+	</td>
+	<td >
+		<select id="userid" name="userid" <?php echo helper_get_tab_index() ?>	class="autofocus input-sm">
+			<?php print_user_option_list( plugin_config_get( 'results_inform_id'  ), 0, plugin_config_get( 'results_view_threshold'  ) ) ?>
+		</select>
+	</td>
+</tr>
+
+<tr >
 	<td class="category">
 	<?php echo plugin_lang_get( 'entries' ) ?>
 	</td>

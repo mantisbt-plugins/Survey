@@ -13,7 +13,7 @@ class SurveyPlugin extends MantisPlugin {
 		$this->name = plugin_lang_get( 'title' );
 		$this->description = plugin_lang_get( 'description' );
 		$this->page = 'config';
-		$this->version = '1.2.1';
+		$this->version = '1.3.0';
 		$this->requires = array( 'MantisCore' => '2.0.0', );
 		$this->author = 'Cas Nuy';
 		$this->contact = 'cas@nuy.info';
@@ -24,8 +24,10 @@ class SurveyPlugin extends MantisPlugin {
 		return array(
 			'Survey_status'				=> 90,		// Closed
 			'results_view_threshold'	=> 70,		// Manager	
+			'results_inform_id'			=> 0,		// Administrator
 			'results_per_page'			=> 25,
-			'Survey_projects'			=> '0',			
+			'Survey_projects'			=> '0',		
+			'Survey_inform_result'		=> OFF,
 			);
 	}
 
@@ -91,8 +93,10 @@ function errors() {
 	}
 
 
-// https://github.com/michael/multiselect/blob/master/index.html
-// http://quasipartikel.at/multiselect_original/
 
-// https://github.com/openqubit/php-pagination/blob/master/page.php
+/*	
+ https://github.com/michael/multiselect/blob/master/index.html
+ http://quasipartikel.at/multiselect_original/
+ https://github.com/openqubit/php-pagination/blob/master/page.php
+*/
 }

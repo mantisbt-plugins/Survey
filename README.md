@@ -1,4 +1,4 @@
-# Survey version 1.2.1
+# Survey version 1.3.0
 This plugin allows sending of a survey request once the issue reaches a specific status.
 
 Installation is like any other plugin:
@@ -14,6 +14,8 @@ That's all, enjoy
 - Selection of the user level that can view the management page of survey results
 - Select the projects for which the survey should be triggered
 	- for now a comma separated list which holds  the project_id's. Default value = '0' which means all projects.
+- Inform ssomone about posting Y/N 
+- Select user to send mail Should have mininal level to view management page.
 - Set the max number of entries per page when looking @ the survey results ( between 5 & 100 )
 
 
@@ -30,3 +32,4 @@ version<br>
 1.1.0	31-10-2024	Included management cockpit<br>
 1.2.0	01-11-2024	Included option to activate the survey plugin for one or more projects<br>
 1.2.1	01-11-2024	Added option to search in the resultset<br>
+1.3.0	06-11-2024	Added an option so send out email to defined user about completion of survey<br>

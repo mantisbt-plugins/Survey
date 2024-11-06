@@ -38,3 +38,29 @@ function string_get_bug_survey_url_with_fqdn( $p_bug_id ) {
 function string_get_bug_survey_url( $p_bug_id ) {
 	return 'plugin.php?page=Survey/fill_survey.php&id=' . $p_bug_id;
 }
+
+function email_survey_post( $p_bug_id ) {
+	$t_email_id = plugin_config_get( 'results_inform_id');
+	$t_email = user_get_field( $t_email_id , 'email');
+	if ( $t_email <>'' ) {
+		$t_reporter_id = bug_get_field( $p_bug_id, 'reporter_id' );
+		$t_sender_id = auth_get_current_user_id();
+		$t_sender = user_get_name( $t_sender_id );
+		$t_subject = "[[SURVEY POSTED]]";
+		$t_subject .= email_build_subject( $p_bug_id );
+		$t_date = date( config_get( 'normal_date_format' ) );
+		$p_message = plugin_lang_get( 'message2' ) ;
+				$t_sender_email = ' <' . current_user_get_field( 'email' ) . '>';
+		$t_header = "\n" . lang_get( 'on_date' ) . " $t_date, $t_sender $t_sender_email " . plugin_lang_get( 'finalized_the_survey_about' ) . ": \n\n";
+		$t_contents = $t_header . " \n\n$p_message";
+
+		if( ON == config_get( 'enable_email_notification' ) ) {
+			email_store( $t_email, $t_subject, $t_contents );
+		}
+	
+		if ( OFF == config_get( 'email_send_using_cronjob' ) ) {
+			email_send_all();
+		}
+	}
+	return;
+}
