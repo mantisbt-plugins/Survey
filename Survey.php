@@ -37,7 +37,7 @@ class SurveyPlugin extends MantisPlugin {
 	}
 
 	function managemenu() {
-		return array('<a href="'. plugin_page( 'manage_Survey_page.php' ) . '">' . plugin_lang_get( 'survey' ) . '</a>' );
+		return array('<a href="'. plugin_page( 'manage_survey_page.php' ) . '">' . plugin_lang_get( 'survey' ) . '</a>' );
     }
 
 
